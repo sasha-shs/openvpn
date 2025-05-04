@@ -1,0 +1,22 @@
+---
+dependency:
+  name: galaxy
+  options:
+    ignore-certs: true
+    ignore-errors: true
+    role-file: requirements.yml
+
+driver:
+  name: docker
+
+platforms:
+  - name: instance
+    image: arm64v8/python:3.9-slim
+    privileged: true
+    pre_build_image: true
+
+provisioner:
+  name: ansible
+
+verifier:
+  name: ansible
